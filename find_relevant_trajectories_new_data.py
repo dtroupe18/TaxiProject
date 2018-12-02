@@ -1,6 +1,10 @@
 import pandas as pd
 import os
 
+###########################################
+# Find Relevant Routes in the new dataset #
+###########################################
+
 
 def load_csv_as_df(file_name, sub_directories, column_numbers=None, column_names=None):
     '''
@@ -32,7 +36,11 @@ def lookup(s):
 
 
 def label_trajectories(df, trajectory_number):
-    df['time'] = lookup(df['time']) # add time for sorting
+    """
+    This method didn't work very well! Not recommended (slow)
+    """
+
+    df['time'] = lookup(df['time'])  # add time for sorting
     updated_dfs = []
     taxi_ids = df['taxi_id'].unique()
     print('There are ', len(taxi_ids), ' unique taxi ids in this data')
@@ -54,8 +62,8 @@ def label_trajectories(df, trajectory_number):
 
         airport_starts = []
         airport_ends = []
-        bus_starts = []
-        bus_ends = []
+        train_starts = []
+        train_ends = []
 
         for index, row in taxi_df.iterrows():
             passenger_in_taxi = row['occupancy_status']
@@ -68,9 +76,9 @@ def label_trajectories(df, trajectory_number):
                     route_ends.append(False)
                     relevant_ends.append(False)
                     relevant_starts.append(False)
-                    bus_starts.append(False)
+                    train_starts.append(False)
                     airport_starts.append(False)
-                    bus_ends.append(False)
+                    train_ends.append(False)
                     airport_ends.append(False)
                     route_numbers.append(trajectory_number)
                     continue
@@ -86,24 +94,24 @@ def label_trajectories(df, trajectory_number):
                     end_lat = row['latitude']
                     end_long = row['longitude']
 
-                    if near_airport(end_lat, end_long) or near_bus_station(end_lat, end_long):
+                    if near_airport(end_lat, end_long) or near_train_station(end_lat, end_long):
                         relevant_ends.append(True)
 
                         if near_airport(end_lat, end_long):
                             airport_ends.append(True)
-                            bus_ends.append(False)
+                            train_ends.append(False)
                         else:
                             airport_ends.append(False)
-                            bus_ends.append(True)
+                            train_ends.append(True)
 
                     else:
                         relevant_ends.append(False)
                         airport_ends.append(False)
-                        bus_ends.append(False)
+                        train_ends.append(False)
 
                     relevant_starts.append(False)
                     airport_starts.append(False)
-                    bus_starts.append(False)
+                    train_starts.append(False)
 
             elif passenger_in_taxi:
                 # someone just got in
@@ -116,24 +124,24 @@ def label_trajectories(df, trajectory_number):
                 start_lat = row['latitude']
                 start_long = row['longitude']
 
-                if near_airport(start_lat, start_long) or near_bus_station(start_lat, start_long):
+                if near_airport(start_lat, start_long) or near_train_station(start_lat, start_long):
                     relevant_starts.append(True)
 
                     if near_airport(start_lat, start_long):
                         airport_starts.append(True)
-                        bus_starts.append(False)
+                        train_starts.append(False)
                     else:
-                        bus_starts.append(True)
+                        train_starts.append(True)
                         airport_starts.append(False)
 
                 else:
                     relevant_starts.append(False)
                     airport_starts.append(False)
-                    bus_starts.append(False)
+                    train_starts.append(False)
 
                 relevant_ends.append(False)
                 airport_ends.append(False)
-                bus_ends.append(False)
+                train_ends.append(False)
 
             else:
                 # driving around without no passenger
@@ -141,9 +149,9 @@ def label_trajectories(df, trajectory_number):
                 route_ends.append(False)
                 relevant_ends.append(False)
                 relevant_starts.append(False)
-                bus_starts.append(False)
+                train_starts.append(False)
                 airport_starts.append(False)
-                bus_ends.append(False)
+                train_ends.append(False)
                 airport_ends.append(False)
                 route_numbers.append(empty_route)
 
@@ -154,32 +162,36 @@ def label_trajectories(df, trajectory_number):
         taxi_df['relevant_end'] = relevant_ends
         taxi_df['airport_start'] = airport_starts
         taxi_df['airport_end'] = airport_ends
-        taxi_df['bus_start'] = bus_starts
-        taxi_df['bus_end'] = bus_ends
+        taxi_df['train_start'] = train_starts
+        taxi_df['train_end'] = train_ends
 
         taxi_df = taxi_df[taxi_df.route_number != -1]
         updated_dfs.append(taxi_df)
         completed_count += 1
 
-        if completed_count % 1000 == 0:
+        if completed_count % 500 == 0:
             print('Completed ', completed_count, ' taxi_ids out of ', len(taxi_ids))
 
+    print('Done mapping trajectories!')
     return pd.concat(updated_dfs), trajectory_number
 
 
 def find_trajectories_at_airport_or_bus(df):
-    ## Test this method!
-    relevant_starts_df = df[df['relevant_start'] == True]
-    relevant_ends_df = df[df['relevant_end'] == True]
+    # Test this method!
+    air_to_bus_df = df[(df['airport_start'] == True) & (df['train_end'] == True)]
+    bus_to_air_df = df[(df['train_start'] == True) & (df['airport_end'] == True)]
 
-    relevant_start_numbers = relevant_starts_df.route_number.unique()
-    relevant_end_numbers = relevant_ends_df.route_number.unique()
+    relevant_air_to_bus_numbers = air_to_bus_df.route_number.unique()
+    relevant_bus_to_air_numbers = bus_to_air_df.route_number.unique()
 
-    intersection_numbers = list(set(relevant_start_numbers) & set(relevant_end_numbers))
+    route_numbers = relevant_air_to_bus_numbers + relevant_bus_to_air_numbers
 
-    print('Found ', len(intersection_numbers), ' relevant routes!')
+    print('Found ', len(route_numbers), ' relevant routes!')
 
-    return df[df['route_number'].isin(intersection_numbers)]
+    return df[df['route_number'].isin(route_numbers)]
+
+
+#### Write a new find trajectories that filters the df and run over all trajectory DF's??
 
 
 def near_airport(lat, long):
@@ -196,6 +208,13 @@ def near_bus_station(lat, long):
         return False
 
 
+def near_train_station(lat, long):
+    if 22.604998 <= lat <= 22.614221 and 114.021111 <= long <= 114.034778:
+        return True
+    else:
+        return False
+
+
 def load_data_and_find_relevant_routes(file_name, sub_directories, trajectory_number):
     col_numbers = [3, 4, 5, 6, 7, 8, 12]
     col_names = ['longitude', 'latitude', 'time', 'taxi_id', 'speed', 'direction', 'occupancy_status']
@@ -203,9 +222,21 @@ def load_data_and_find_relevant_routes(file_name, sub_directories, trajectory_nu
     df = load_csv_as_df(file_name, sub_directories, col_numbers, col_names)
     df, new_trajectory_number = label_trajectories(df, trajectory_number)
 
-    relevant_df = find_trajectories_at_airport_or_bus(df)
+    labeled_file_name = file_name + '-With-Trajectories.csv'
+    df.to_csv(labeled_file_name, encoding='utf-8')
 
+    relevant_df = find_trajectories_at_airport_or_bus(df)
+    csv_file_name = file_name + '.csv'
+
+    relevant_df.to_csv(csv_file_name, encoding='utf-8')
+
+    with open('RouteNumbers.txt', 'w') as f:
+        f.write('%d' % new_trajectory_number)
+
+    print('\n\n')
+    print("###########################################################")
     print('Found ', len(relevant_df), ' relevant routes in ', file_name)
+    print('Current Trajectory Number: ', new_trajectory_number)
 
     return relevant_df, new_trajectory_number
 
@@ -216,6 +247,7 @@ def load_all_data_from(folder_name, number_of_files):
     relevant_dfs = []
 
     for i in range(0, number_of_files):
+    # for i in range(0, number_of_files):
 
         if i < 10:
             file_number = '0000' + str(i)
@@ -233,4 +265,7 @@ def load_all_data_from(folder_name, number_of_files):
     return relevant_dfs
 
 
-# all_relevant_df = load_all_data_from('/2014-04-06/', 2)
+all_relevant_df_list = load_all_data_from('/2014-04-06/', 76)
+
+dfs = pd.concat(all_relevant_df_list)
+dfs.to_csv('RelevantTrajectories.csv', encoding='utf-8')
