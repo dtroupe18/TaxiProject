@@ -33,7 +33,6 @@ Due to the sensitive nature of GPS data only a [sample](http://www-users.cs.umn.
 <img src="https://github.com/dtroupe18/TaxiProject/blob/master/AirToTrain/Images/Train%20to%20Airport%20Station%20Google%20Maps.png" width="300">
 
 
-
 <img src="https://github.com/dtroupe18/TaxiProject/blob/master/TrainToTrain/Images/SummaryImages/West-To-North-Google-Maps-Image.png" width="300">
 
 <img src="https://github.com/dtroupe18/TaxiProject/blob/master/TrainToTrain/Images/SummaryImages/Train%20Station%20West%20to%20Train%20Station%20North%20Google%20Maps%20Routes.png" width="300">
