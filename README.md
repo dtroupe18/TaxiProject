@@ -39,41 +39,37 @@ Due to the sensitive nature of GPS data only a [sample](http://www-users.cs.umn.
 <img src="https://github.com/dtroupe18/TaxiProject/blob/master/TrainToTrain/Images/SummaryImages/Train%20Station%20West%20to%20Train%20Station%20North%20Google%20Maps%20Routes.png" width="300">
 
 
-
-2. Graph those routes using [Matplotlib](https://matplotlib.org/) 
-
-![Alt Text](https://github.com/dtroupe18/TaxiProject/blob/master/Project-Images/JustGoogleMaps/All%20Google%20Maps%20Routes.png)
-
-3. [Filter](https://github.com/dtroupe18/TaxiProject/blob/master/Python-Scripts/find_relevant_trajectories.py) GPS trajectories by longitude and latitude so that only routes between the aiport and train station are left. You'll also have to worry about routes that have infrequent readings because it makes reconstructing their route impossible. 
-
-![Alt Text](https://github.com/dtroupe18/TaxiProject/blob/master/Project-Images/Linear-Routes/Train%20to%20Airport%20Routes%20With%20Infrequent%20Readings.png)
+2. [Filter](https://github.com/dtroupe18/TaxiProject/blob/master/AirToTrain/Python-Scripts/find_relevant_trajectories.py) GPS trajectories by longitude and latitude so that only routes between the aiport and train station or north and west train stations are left. You'll also have to worry about routes that have infrequent readings because it makes reconstructing their true route impossible. 
 
 
-4. Graph individual routes and compare them to Google Maps routes. 
+3. Graph those routes using [Matplotlib](https://matplotlib.org/) and compare them to Google Maps routes. [All airport to train station routes](https://github.com/dtroupe18/TaxiProject/tree/master/AirToTrain/Images/All-Route-Graphs) [All train to train routes](https://github.com/dtroupe18/TaxiProject/tree/master/TrainToTrain/Images)
 
-![Alt Text](https://github.com/dtroupe18/TaxiProject/blob/master/Project-Images/All-Route-Graphs/Airport-To-Train-Route-Graphs/Airport%20to%20Train%20Route%20164730.png)
+Sample:
 
-5. Create a baseline method to evaluate fraud. Our baseline method labeled routes that had above average time and distance as fraud. Our method was limited by the amount of data we had so we couldn't determine if these anamolous trajectories were the result of things such as traffic. Additionally, we were able to access historical data to determine if the driver is familiar with that area. 
+<img src="https://github.com/dtroupe18/TaxiProject/blob/master/TrainToTrain/Images/NorthToWestImages/All-Routes/North%20to%20West%20Train%20Route%20622571.png" width="300">
 
--Baseline Images:
-![Alt Text](https://github.com/dtroupe18/TaxiProject/blob/master/Project-Images/BaselineImages/Airport%20to%20Train%20All%20Routes.png)
 
-![Alt Text](https://github.com/dtroupe18/TaxiProject/blob/master/Project-Images/BaselineImages/Train%20to%20Airport%20All%20Routes%20with%20Errors%20Colored.png)
+4. Create a baseline method to evaluate fraud. Our baseline method labeled routes that had above average time and distance as fraud. Our method was limited by the amount of data we had so we couldn't determine if these anamolous trajectories were the result of things such as traffic. Additionally, we weren't able to access historical data to determine if the driver is familiar with that area. 
 
-![Alt Text](https://github.com/dtroupe18/TaxiProject/blob/master/Project-Images/BaselineImages/Train%20to%20Airport%20All%20Routes%20without%20Errors.png)
+-Airport to train station routes vs Google maps:
+<img src="https://github.com/dtroupe18/TaxiProject/blob/master/AirToTrain/Images/Train%20to%20Airport%20Station%20Google%20Maps%20vs%20Actual.png" width="300">
 
-![Alt Text](https://github.com/dtroupe18/TaxiProject/blob/master/Project-Images/BaselineImages/Train%20to%20Airport%20All%20Routes.png)
+<img src="https://github.com/dtroupe18/TaxiProject/blob/master/AirToTrain/Images/Airport%20to%20Train%20Station%20Google%20Maps%20vs%20Actual.png" width="300">
 
-6. Map GPS trajectories to cells based on their coordinates. This turns a trajectory into a series of cells that were visted. We then compared how similar every trajectories cell path was to the cell path of a Google Maps route. If less than 80% of the cells were the same we labeled that route fraudulent. 
+-Train to train station routes vs Google maps:
+<img src="https://github.com/dtroupe18/TaxiProject/blob/master/TrainToTrain/Images/SummaryImages/North%20to%20West%20Train%20Station%20Google%20Maps%20vs%20Actual.png" width="300">
 
--Fraud by Sub-Sequence
+<img src="https://github.com/dtroupe18/TaxiProject/blob/master/TrainToTrain/Images/SummaryImages/West%20to%20North%20Train%20Station%20Google%20Maps%20vs%20Actual.png" width="300">
 
-![Alt Text](https://github.com/dtroupe18/TaxiProject/blob/master/Project-Images/Sub-Sequence-Images/Airport%20to%20Train%20All%20Routes%20-%20Fraud%20by%20Sub-Sequence.png)
+-Sample fraud based on baseline method (above average time and distance)
 
-![Alt Text](https://github.com/dtroupe18/TaxiProject/blob/master/Project-Images/Sub-Sequence-Images/Train%20to%20Airport%20All%20Routes%20-%20Fraud%20by%20Sub-Sequence%20with%20Errors%20Colored.png)
+<img src="https://github.com/dtroupe18/TaxiProject/blob/master/AirToTrain/Images/All-Route-Graphs/Suspected-Air-Fraud/Airport%20to%20Train%20Route%20329370.png" width="300">
 
-![Alt Text](https://github.com/dtroupe18/TaxiProject/blob/master/Project-Images/Sub-Sequence-Images/Train%20to%20Airport%20All%20Routes%20-%20Fraud%20by%20Sub-Sequence%20without%20Errors.png)
+<img src="https://github.com/dtroupe18/TaxiProject/blob/master/TrainToTrain/Images/NorthToWestImages/Fraud-By-Time-Distance/North%20to%20West%20Train%20Route%20509935.png" width="300">
 
-![Alt Text](https://github.com/dtroupe18/TaxiProject/blob/master/Project-Images/Sub-Sequence-Images/Train%20to%20Airport%20All%20Routes%20-%20Fraud%20by%20Sub-Sequence.png)
+
+6. [Map GPS trajectories to cells](https://github.com/dtroupe18/TaxiProject/blob/master/AirToTrain/Python-Scripts/map_gps_to_cells.py) based on their coordinates. This turns a trajectory into a series of cells that were visted. We then compared how similar every trajectories cell path was to the cell path of a Google Maps route. If less than 80% of the cells were the same we labeled that route fraudulent. 
+
+
 
 
