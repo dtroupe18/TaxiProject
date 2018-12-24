@@ -6,7 +6,7 @@ We evaluated routes between the [North train station](https://www.google.com/map
 ![Alt Text](https://github.com/dtroupe18/TaxiProject/blob/master/AirToTrain/Images/Train-to-airport-google-maps.png)
 
 
-As well as, routes between the [west railway station](https://www.google.com/maps/place/Railway+Station+%EF%BC%88West%EF%BC%89+Exit/@22.5342536,114.1092764,16.87z/data=!4m12!1m6!3m5!1s0x340387c818047d83:0x19d70ddf7e3f5cfb!2sHOME+INN+SHENZHEN+RAILWAY+STATION!8m2!3d22.533691!4d114.111333!3m4!1s0x0:0x7e0a7ba85352fcba!8m2!3d22.5345792!4d114.1104855) and the [North train station](https://www.google.com/maps/place/%E6%B7%B1%E5%9C%B3%E5%8C%97/@22.609247,114.02878,15z/data=!4m5!3m4!1s0x0:0x8b45ae202baadf7!8m2!3d22.609247!4d114.02878) in both directions. 
+Additionally, we evaluated routes between the [west railway station](https://www.google.com/maps/place/Railway+Station+%EF%BC%88West%EF%BC%89+Exit/@22.5342536,114.1092764,16.87z/data=!4m12!1m6!3m5!1s0x340387c818047d83:0x19d70ddf7e3f5cfb!2sHOME+INN+SHENZHEN+RAILWAY+STATION!8m2!3d22.533691!4d114.111333!3m4!1s0x0:0x7e0a7ba85352fcba!8m2!3d22.5345792!4d114.1104855) and the [North train station](https://www.google.com/maps/place/%E6%B7%B1%E5%9C%B3%E5%8C%97/@22.609247,114.02878,15z/data=!4m5!3m4!1s0x0:0x8b45ae202baadf7!8m2!3d22.609247!4d114.02878) in both directions. 
 
 ![Alt Text](https://github.com/dtroupe18/TaxiProject/blob/master/TrainToTrain/Images/SummaryImages/West-To-North-Google-Maps-Image.png)
 
@@ -27,9 +27,17 @@ Due to the sensitive nature of GPS data only a [sample](http://www-users.cs.umn.
 
 1. Create GPS traces that map the routes recommended by Google Maps
 
-![Alt Text](https://github.com/dtroupe18/TaxiProject/blob/master/Project-Images/JustGoogleMaps/Airport-to-train-google-maps.png)
+![Alt Text](https://github.com/dtroupe18/TaxiProject/blob/master/AirToTrain/Images/Airport-to-train-google-maps.png)
 
-![Alt Text](https://github.com/dtroupe18/TaxiProject/blob/master/Project-Images/JustGoogleMaps/Train-to-airport-google-maps.png)
+![Alt Text](https://github.com/dtroupe18/TaxiProject/blob/master/AirToTrain/Images/Train%20to%20Airport%20Station%20Google%20Maps.png)
+
+
+
+![Alt Text](https://github.com/dtroupe18/TaxiProject/blob/master/TrainToTrain/Images/SummaryImages/West-To-North-Google-Maps-Image.png)
+
+![Alt Text](https://github.com/dtroupe18/TaxiProject/blob/master/TrainToTrain/Images/SummaryImages/Train%20Station%20West%20to%20Train%20Station%20North%20Google%20Maps%20Routes.png)
+
+
 
 2. Graph those routes using [Matplotlib](https://matplotlib.org/) 
 
