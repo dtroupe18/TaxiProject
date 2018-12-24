@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdcf453a-bbb3-4d84-8426-34e31ae5ee72" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/Python-Scripts/find_train_to_train_routes.py" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,20 +15,7 @@
     <SUITE FILE_PATH="coverage/TaxiProject$new_data.coverage" NAME="new_data Coverage Results" MODIFIED="1542487911210" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="find_train_to_train_routes.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Python-Scripts/find_train_to_train_routes.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="320" column="0" lean-forward="false" selection-start-line="320" selection-start-column="0" selection-end-line="326" selection-end-column="53" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -103,7 +89,44 @@
             <path>
               <item name="TaxiProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="TaxiProject" type="462c0819:PsiDirectoryNode" />
+              <item name="AirToTrain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TaxiProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TaxiProject" type="462c0819:PsiDirectoryNode" />
+              <item name="AirToTrain" type="462c0819:PsiDirectoryNode" />
               <item name="Python-Scripts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TaxiProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TaxiProject" type="462c0819:PsiDirectoryNode" />
+              <item name="TrainToTrain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TaxiProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TaxiProject" type="462c0819:PsiDirectoryNode" />
+              <item name="TrainToTrain" type="462c0819:PsiDirectoryNode" />
+              <item name=".ipynb_checkpoints" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TaxiProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TaxiProject" type="462c0819:PsiDirectoryNode" />
+              <item name="TrainToTrain" type="462c0819:PsiDirectoryNode" />
+              <item name="Images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TaxiProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TaxiProject" type="462c0819:PsiDirectoryNode" />
+              <item name="TrainToTrain" type="462c0819:PsiDirectoryNode" />
+              <item name="Images" type="462c0819:PsiDirectoryNode" />
+              <item name="NorthToWestImages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TaxiProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TaxiProject" type="462c0819:PsiDirectoryNode" />
+              <item name="TrainToTrain" type="462c0819:PsiDirectoryNode" />
+              <item name="Images" type="462c0819:PsiDirectoryNode" />
+              <item name="SummaryImages" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -182,7 +205,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="72" y="140" width="1339" height="737" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -190,7 +212,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917318" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14957595" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14957595" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -475,9 +497,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="385">
           <caret line="196" column="0" lean-forward="true" selection-start-line="196" selection-start-column="0" selection-end-line="196" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#31#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -485,9 +505,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
           <caret line="320" column="0" lean-forward="false" selection-start-line="320" selection-start-column="0" selection-end-line="326" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TrainToTrain/Images/SummaryImages/North-To-West-Google-Maps-Image.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TrainToTrain/.ipynb_checkpoints/Find Train to Train Routes in Original Data-checkpoint.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="5" />
         </state>
       </provider>
     </entry>
