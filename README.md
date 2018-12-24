@@ -51,11 +51,13 @@ Sample:
 4. Create a baseline method to evaluate fraud. Our baseline method labeled routes that had above average time and distance as fraud. Our method was limited by the amount of data we had so we couldn't determine if these anamolous trajectories were the result of things such as traffic. Additionally, we weren't able to access historical data to determine if the driver is familiar with that area. 
 
 -Airport to train station routes vs Google maps:
+
 <img src="https://github.com/dtroupe18/TaxiProject/blob/master/AirToTrain/Images/Train%20to%20Airport%20Station%20Google%20Maps%20vs%20Actual.png" width="300">
 
 <img src="https://github.com/dtroupe18/TaxiProject/blob/master/AirToTrain/Images/Airport%20to%20Train%20Station%20Google%20Maps%20vs%20Actual.png" width="300">
 
 -Train to train station routes vs Google maps:
+
 <img src="https://github.com/dtroupe18/TaxiProject/blob/master/TrainToTrain/Images/SummaryImages/North%20to%20West%20Train%20Station%20Google%20Maps%20vs%20Actual.png" width="300">
 
 <img src="https://github.com/dtroupe18/TaxiProject/blob/master/TrainToTrain/Images/SummaryImages/West%20to%20North%20Train%20Station%20Google%20Maps%20vs%20Actual.png" width="300">
